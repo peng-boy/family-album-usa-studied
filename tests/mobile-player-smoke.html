@@ -1,0 +1,38 @@
+<!doctype html><meta charset="utf-8"><title>Running</title><pre id="result">RUNNING</pre>
+<iframe id="app" src="/index.html#ep1" style="width:375px;height:740px;border:0"></iframe>
+<script>
+(async()=>{
+ const result=document.getElementById('result'),frame=document.getElementById('app'),checks=[];
+ function check(value,label){if(!value)throw Error(label);checks.push(label)}
+ try{
+  await new Promise((resolve,reject)=>{const deadline=Date.now()+10000;const timer=setInterval(()=>{if(frame.contentDocument.querySelector('[data-play-mode]')){clearInterval(timer);resolve()}else if(Date.now()>deadline){clearInterval(timer);reject(Error('App timed out'))}},50)});
+  const w=frame.contentWindow,d=frame.contentDocument,a=d.querySelector('audio'),card=d.querySelector('.audio-player');
+  // Deterministic DOM integration: simulate media state to avoid headless virtual-time
+  // media decoding races. Actual MP3 serving is checked separately with HTTP ranges.
+  let paused=true;
+  Object.defineProperty(a,'paused',{get:()=>paused});
+  Object.defineProperty(a,'duration',{get:()=>244});
+  Object.defineProperty(a,'ended',{get:()=>false});
+  a.play=()=>{paused=false;a.dispatchEvent(new Event('play'));return Promise.resolve()};
+  a.pause=()=>{paused=true;a.dispatchEvent(new Event('pause'))};
+  const lesson=await(await fetch('/episodes.json')).json(),lines=lesson.episodes[0].acts[0].lines;
+  check(w.getComputedStyle(card).position==='fixed','Mobile player is fixed');
+  const box=card.getBoundingClientRect(),nav=d.querySelector('.mobile-nav').getBoundingClientRect();
+  check(box.left>=0&&box.right<=375,'Player fits narrow viewport');
+  check(box.bottom<=nav.top+1,'Player does not overlap bottom navigation');
+  check(d.querySelector('[data-play-mode="loop"]').closest('.audio-player')===card,'Loop control is inside player card');
+  w.setSpeed(.5);check(a.playbackRate===.5,'Half speed works');
+  w.setPlaybackMode('once');w.seekToLine(0);await a.play();
+  a.currentTime=lines[1].t;a.dispatchEvent(new Event('timeupdate'));
+  check(a.paused,'Once mode pauses at next sentence');
+  check(Math.abs(a.currentTime-lines[0].t)<.1,'Once mode resets for replay');
+  w.setPlaybackMode('loop');w.seekToLine(0);await a.play();
+  a.currentTime=lines[1].t;a.dispatchEvent(new Event('timeupdate'));
+  check(!a.paused&&Math.abs(a.currentTime-lines[0].t)<.1,'Loop returns to selected sentence');
+  a.pause();w.selectAct(1);check(a.paused,'Act switch stops looping old audio');
+  check(d.querySelector('[data-play-mode="loop"]').getAttribute('aria-pressed')==='true','Mode persists across acts');
+  w.goHome();check(d.querySelector('#detail-wrap').style.display==='none','Home hides fixed player');
+  result.textContent='PASS\n'+checks.join('\n');document.title='PASS';
+ }catch(e){result.textContent='FAIL '+e.stack;document.title='FAIL'}
+})();
+</script>

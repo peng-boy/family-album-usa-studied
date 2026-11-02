@@ -320,6 +320,7 @@
       display: flex; align-items: center; gap: 12px;
       flex-wrap: wrap;
     }
+    .sentence-controls { display: flex; gap: 6px; flex-wrap: wrap; width: 100%; }
     .audio-player audio {
       flex: 1; min-width: 220px;
       height: 36px;
@@ -449,6 +450,27 @@
       .header-logo span { display: none; }
       .desktop-only { display: none !important; }
       .mobile-only { display: flex; }
+      .detail-content { padding-bottom: calc(var(--player-height, 230px) + 100px + env(safe-area-inset-bottom, 0px)); }
+      .audio-player {
+        position: fixed;
+        left: 8px; right: 8px;
+        bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+        z-index: 210;
+        margin: 0;
+        padding: 10px 12px;
+        gap: 8px;
+        background: var(--bg);
+        box-shadow: 0 -4px 24px rgba(0,0,0,.12);
+        max-height: calc(100dvh - 140px);
+        overflow-y: auto;
+      }
+      .audio-player audio { flex-basis: 100%; min-width: 0; width: 100%; }
+      .audio-player .speed-control { flex: 1; justify-content: space-between; }
+      .audio-player .speed-btn { padding: 6px; min-height: 32px; }
+      .audio-player .btn { min-height: 34px; padding: 5px 9px; font-size: 12px; }
+      .sentence-controls .btn { flex: 1; justify-content: center; }
+      .sync-hint { font-size: 11px; }
+      .line-item[data-seekable] { scroll-margin-bottom: calc(var(--player-height, 230px) + 90px); }
       .detail-topbar { flex-wrap: wrap; gap: 8px; }
       .detail-title-block { order: 3; flex-basis: 100%; }
       .detail-nav-btn { padding: 5px 10px; font-size: 12px; }
@@ -473,7 +495,6 @@
       }
       .mobile-nav-btn.active { color: var(--accent); }
       .mobile-nav-btn svg { width: 20px; height: 20px; }
-    }
     }
 
   </style>
@@ -573,8 +594,25 @@ let searchFocusedIdx = -1;
 let searchResultsCache = [];
 let disposeAudioSync = null;
 let followAudio = true;
+let sentencePlayer = null;
+let playbackMode = 'continuous';
+let playerResizeObserver = null;
+
+function setPlaybackMode(mode) {
+  playbackMode = mode;
+  if (sentencePlayer) sentencePlayer.setMode(mode);
+  document.querySelectorAll('[data-play-mode]').forEach(btn => {
+    const active = btn.dataset.playMode === mode;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+}
 
 function stopCurrentAudio() {
+  if (sentencePlayer) sentencePlayer.dispose();
+  sentencePlayer = null;
+  if (playerResizeObserver) playerResizeObserver.disconnect();
+  playerResizeObserver = null;
   if (disposeAudioSync) disposeAudioSync();
   disposeAudioSync = null;
   document.querySelectorAll('audio').forEach(audio => audio.pause());
@@ -598,7 +636,10 @@ function scrollToCurrentLine() {
   const current = document.querySelector('.line-item.is-current');
   if (!current) return;
   const rect = current.getBoundingClientRect();
-  if (rect.top < 72 || rect.bottom > window.innerHeight - 90) {
+  const player = document.querySelector('.audio-player');
+  const bottom = window.matchMedia('(max-width: 768px)').matches && player
+    ? player.getBoundingClientRect().top - 12 : window.innerHeight - 90;
+  if (rect.top < 72 || rect.bottom > bottom) {
     current.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
   }
 }
@@ -607,6 +648,7 @@ function seekToLine(li) {
   const audio = document.getElementById(`audio-${currentActIdx}`);
   const line = data.episodes[currentEpisodeIdx].acts[currentActIdx].lines[li];
   if (!audio || !line) return;
+  if (sentencePlayer) sentencePlayer.select(li);
   audio.currentTime = line.t;
   audio.play().catch(() => {
     // Keep native controls available if playback is blocked or the file fails to load.
@@ -632,7 +674,7 @@ function bindAudioSync(audio, act, ai) {
   };
 }
 
-const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5];
+const SPEED_OPTIONS = [0.5, 0.75, 1, 1.25, 1.5];
 
 /* ─── Helpers ─── */
 function formatTime(sec) {
@@ -797,7 +839,7 @@ function renderDetail() {
   `;
   if (hasAudio) {
     const speedBtns = SPEED_OPTIONS.map(r =>
-      `<button class="speed-btn ${r === currentPlaybackRate ? 'active' : ''}" onclick="setSpeed(${r})">${r}x</button>`
+      `<button class="speed-btn ${r === currentPlaybackRate ? 'active' : ''}" data-speed="${r}" onclick="setSpeed(${r})">${r}×</button>`
     ).join('');
     html += `
       <div class="audio-player">
@@ -807,7 +849,10 @@ function renderDetail() {
         </audio>
         <div class="speed-control">${speedBtns}</div>
         <button class="btn ${followAudio ? 'active' : ''}" aria-pressed="${followAudio}" onclick="toggleFollowAudio(this)">${followAudio ? '自动跟随：开' : '自动跟随：关'}</button>
-        <div class="sync-hint">播放时高亮当前语句 · 点击台词从该句播放</div>
+        <div class="sentence-controls" role="group" aria-label="播放模式">
+          ${[['continuous', '连续播放'], ['once', '单句一次'], ['loop', '单句循环']].map(([mode, label]) => `<button class="btn ${playbackMode === mode ? 'active' : ''}" data-play-mode="${mode}" aria-pressed="${playbackMode === mode}" onclick="setPlaybackMode('${mode}')">${label}</button>`).join('')}
+        </div>
+        <div class="sync-hint">点击台词选句 · 单句按下一时间戳结束，同时间戳合并播放</div>
         <div class="audio-error" id="audio-error-${ai}">
           ⚠ 音频加载失败，请检查 <code>${act.audio}</code> 是否存在。
         </div>
@@ -843,7 +888,16 @@ function renderDetail() {
     const audioEl = document.getElementById(`audio-${ai}`);
     if (audioEl) {
       audioEl.playbackRate = currentPlaybackRate;
+      sentencePlayer = AudioLineSync.createSentencePlayer(audioEl, act.lines);
+      sentencePlayer.setMode(playbackMode);
       bindAudioSync(audioEl, act, ai);
+      const player = document.querySelector('.audio-player');
+      if (window.ResizeObserver && player) {
+        playerResizeObserver = new ResizeObserver(() => {
+          document.documentElement.style.setProperty('--player-height', `${player.getBoundingClientRect().height}px`);
+        });
+        playerResizeObserver.observe(player);
+      }
     }
   }
 }
@@ -872,8 +926,8 @@ function showAudioError(ai) {
 /* ─── Speed Control ─── */
 function setSpeed(rate) {
   currentPlaybackRate = rate;
-  document.querySelectorAll('.speed-btn').forEach(btn => {
-    btn.classList.toggle('active', parseFloat(btn.textContent) === rate);
+  document.querySelectorAll('[data-speed]').forEach(btn => {
+    btn.classList.toggle('active', Number(btn.dataset.speed) === rate);
   });
   document.querySelectorAll('audio').forEach(a => { a.playbackRate = rate; });
 }

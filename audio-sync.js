@@ -67,7 +67,83 @@
     };
   }
 
-  const api = { findActiveRange, attach };
+  function sentenceBounds(lines, index, duration) {
+    if (!lines[index] || !Number.isFinite(lines[index].t)) return null;
+    const start = lines[index].t;
+    const next = lines.find((line, i) => i > index && line.t > start);
+    const end = Math.min(next ? next.t : Infinity, Number.isFinite(duration) ? duration : Infinity);
+    return end > start ? { start, end } : null;
+  }
+
+  function createSentencePlayer(audio, lines) {
+    let mode = 'continuous';
+    let selected = -1;
+    let frame = null;
+    let disposed = false;
+    function selectAtTime() {
+      selected = findActiveRange(lines, audio.currentTime)[0];
+      if (selected < 0 && lines.length) selected = 0;
+    }
+    function stopFrame() {
+      if (frame !== null) root.cancelAnimationFrame(frame);
+      frame = null;
+    }
+    function enforce() {
+      if (mode === 'continuous' || selected < 0 || audio.paused) return;
+      const bounds = sentenceBounds(lines, selected, audio.duration);
+      if (!bounds) return;
+      if (audio.currentTime >= bounds.end - 0.01 || audio.ended) {
+        if (mode === 'once') audio.pause();
+        audio.currentTime = bounds.start;
+        if (mode === 'loop' && audio.paused) audio.play().catch(() => {});
+      }
+    }
+    function tick() {
+      frame = null;
+      if (disposed) return;
+      enforce();
+      if (!audio.paused && !audio.ended) frame = root.requestAnimationFrame(tick);
+    }
+    function onPlay() {
+      stopFrame();
+      if (mode !== 'continuous' && selected < 0) selectAtTime();
+      tick();
+    }
+    function onSeek() {
+      if (mode === 'continuous') return;
+      const bounds = sentenceBounds(lines, selected, audio.duration);
+      if (!bounds || audio.currentTime < bounds.start || audio.currentTime >= bounds.end) selectAtTime();
+    }
+    function onEnded() {
+      stopFrame();
+      if (mode === 'continuous' || selected < 0) return;
+      const bounds = sentenceBounds(lines, selected, audio.duration);
+      if (!bounds) return;
+      audio.currentTime = bounds.start;
+      if (mode === 'loop') audio.play().catch(() => {});
+    }
+    const events = { play: onPlay, pause: stopFrame, seeking: onSeek, timeupdate: enforce, ended: onEnded };
+    Object.entries(events).forEach(([name, fn]) => audio.addEventListener(name, fn));
+    return {
+      setMode(value) {
+        if (!['continuous', 'once', 'loop'].includes(value)) return;
+        mode = value;
+        if (mode !== 'continuous') {
+          selectAtTime();
+          const bounds = sentenceBounds(lines, selected, audio.duration);
+          if (bounds && audio.currentTime < bounds.start) audio.currentTime = bounds.start;
+        }
+      },
+      select(index) { selected = index; },
+      dispose() {
+        disposed = true;
+        stopFrame();
+        Object.entries(events).forEach(([name, fn]) => audio.removeEventListener(name, fn));
+      }
+    };
+  }
+
+  const api = { findActiveRange, attach, sentenceBounds, createSentencePlayer };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.AudioLineSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);
