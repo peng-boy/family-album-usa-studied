@@ -321,6 +321,11 @@
       flex-wrap: wrap;
     }
     .sentence-controls { display: flex; gap: 6px; flex-wrap: wrap; width: 100%; }
+    .mobile-player-selects { display: none; }
+    .ab-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; width: 100%; }
+    #ab-status { color: var(--text-2); font-size: 12px; }
+    .mobile-player-selects label { display: flex; align-items: center; gap: 5px; font-size: 12px; min-width: 0; }
+    .mobile-player-selects select { min-width: 0; min-height: 36px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 5px 8px; background: var(--bg); color: var(--text); font: inherit; }
     .audio-player audio {
       flex: 1; min-width: 220px;
       height: 36px;
@@ -454,7 +459,7 @@
       .audio-player {
         position: fixed;
         left: 8px; right: 8px;
-        bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(8px + env(safe-area-inset-bottom, 0px));
         z-index: 210;
         margin: 0;
         padding: 10px 12px;
@@ -465,6 +470,15 @@
         overflow-y: auto;
       }
       .audio-player audio { flex-basis: 100%; min-width: 0; width: 100%; }
+      .audio-player .desktop-player-controls { display: none; }
+      .mobile-player-selects { display: flex; gap: 10px; width: 100%; flex-wrap: wrap; }
+      .mobile-player-selects label { flex: 1; }
+      .mobile-player-selects select { flex: 1; }
+      .ab-controls .btn { flex: 1; }
+      #ab-status { flex-basis: 100%; }
+      .header-controls button.desktop-only { display: inline-flex !important; }
+      .header-controls { gap: 4px; }
+      .header-controls .btn { padding: 5px 7px; font-size: 11px; }
       .audio-player .speed-control { flex: 1; justify-content: space-between; }
       .audio-player .speed-btn { padding: 6px; min-height: 32px; }
       .audio-player .btn { min-height: 34px; padding: 5px 9px; font-size: 12px; }
@@ -477,7 +491,7 @@
 
       /* Mobile bottom nav */
       .mobile-nav {
-        display: flex !important;
+        display: none !important;
         position: fixed; bottom: 0; left: 0; right: 0;
         background: rgba(255,255,255,.92);
         backdrop-filter: blur(12px);
@@ -597,9 +611,56 @@ let followAudio = true;
 let sentencePlayer = null;
 let playbackMode = 'continuous';
 let playerResizeObserver = null;
+let abStart = null;
+let abEnd = null;
+
+function updateABControls(message) {
+  const status = document.getElementById('ab-status');
+  const stamp = value => value === null ? '未设置' : `${formatTime(value)}.${Math.floor((value % 1) * 10)}`;
+  if (status) status.textContent = message || `A ${stamp(abStart)} → B ${stamp(abEnd)}`;
+}
+
+function markAB(point) {
+  const audio = document.getElementById(`audio-${currentActIdx}`);
+  if (!audio || !Number.isFinite(audio.currentTime)) return;
+  if (point === 'a') {
+    abStart = audio.currentTime;
+    abEnd = null;
+    if (sentencePlayer) sentencePlayer.clearAB();
+    if (playbackMode === 'ab') setPlaybackMode('continuous');
+  } else {
+    if (abStart === null || audio.currentTime - abStart < .2) {
+      updateABControls('请先设置 A，再在至少 0.2 秒后设置 B');
+      return;
+    }
+    if (!sentencePlayer || !sentencePlayer.setAB(abStart, audio.currentTime)) {
+      updateABControls('B 点无效，请在音频范围内重新设置');
+      return;
+    }
+    abEnd = audio.currentTime;
+    setPlaybackMode('ab');
+  }
+  updateABControls();
+}
+
+function clearAB() {
+  abStart = abEnd = null;
+  if (sentencePlayer) sentencePlayer.clearAB();
+  if (playbackMode === 'ab') setPlaybackMode('continuous');
+  updateABControls();
+}
 
 function setPlaybackMode(mode) {
+  if (!['continuous', 'once', 'loop', 'ab'].includes(mode)) return;
+  if (mode === 'ab' && (abStart === null || abEnd === null)) {
+    updateABControls('请先设置 A 点和 B 点，再启用区间循环');
+    const select = document.getElementById('mode-select');
+    if (select) select.value = playbackMode;
+    return;
+  }
   playbackMode = mode;
+  const select = document.getElementById('mode-select');
+  if (select) select.value = mode;
   if (sentencePlayer) sentencePlayer.setMode(mode);
   document.querySelectorAll('[data-play-mode]').forEach(btn => {
     const active = btn.dataset.playMode === mode;
@@ -609,6 +670,8 @@ function setPlaybackMode(mode) {
 }
 
 function stopCurrentAudio() {
+  abStart = abEnd = null;
+  if (playbackMode === 'ab') playbackMode = 'continuous';
   if (sentencePlayer) sentencePlayer.dispose();
   sentencePlayer = null;
   if (playerResizeObserver) playerResizeObserver.disconnect();
@@ -847,10 +910,20 @@ function renderDetail() {
           <source src="${act.audio}" type="audio/mpeg" />
           您的浏览器不支持音频播放。
         </audio>
-        <div class="speed-control">${speedBtns}</div>
+        <div class="speed-control desktop-player-controls">${speedBtns}</div>
+        <div class="mobile-player-selects">
+          <label>倍速 <select id="speed-select" onchange="setSpeed(Number(this.value))">${SPEED_OPTIONS.map(r => `<option value="${r}" ${r === currentPlaybackRate ? 'selected' : ''}>${r}×</option>`).join('')}</select></label>
+          <label>播放模式 <select id="mode-select" onchange="setPlaybackMode(this.value)">${[['continuous', '连续播放'], ['once', '单句一次'], ['loop', '单句循环'], ['ab', 'A–B 循环']].map(([mode, label]) => `<option value="${mode}" ${mode === playbackMode ? 'selected' : ''}>${label}</option>`).join('')}</select></label>
+        </div>
         <button class="btn ${followAudio ? 'active' : ''}" aria-pressed="${followAudio}" onclick="toggleFollowAudio(this)">${followAudio ? '自动跟随：开' : '自动跟随：关'}</button>
-        <div class="sentence-controls" role="group" aria-label="播放模式">
-          ${[['continuous', '连续播放'], ['once', '单句一次'], ['loop', '单句循环']].map(([mode, label]) => `<button class="btn ${playbackMode === mode ? 'active' : ''}" data-play-mode="${mode}" aria-pressed="${playbackMode === mode}" onclick="setPlaybackMode('${mode}')">${label}</button>`).join('')}
+        <div class="sentence-controls desktop-player-controls" role="group" aria-label="播放模式">
+          ${[['continuous', '连续播放'], ['once', '单句一次'], ['loop', '单句循环'], ['ab', 'A–B 循环']].map(([mode, label]) => `<button class="btn ${playbackMode === mode ? 'active' : ''}" data-play-mode="${mode}" aria-pressed="${playbackMode === mode}" onclick="setPlaybackMode('${mode}')">${label}</button>`).join('')}
+        </div>
+        <div class="ab-controls" role="group" aria-label="A-B 区间设置">
+          <button class="btn" onclick="markAB('a')">设为 A 点</button>
+          <button class="btn" onclick="markAB('b')">设为 B 点</button>
+          <button class="btn" onclick="clearAB()">清除 A–B</button>
+          <span id="ab-status" role="status" aria-live="polite">A 未设置 → B 未设置</span>
         </div>
         <div class="sync-hint">点击台词选句 · 单句按下一时间戳结束，同时间戳合并播放</div>
         <div class="audio-error" id="audio-error-${ai}">
@@ -925,7 +998,10 @@ function showAudioError(ai) {
 
 /* ─── Speed Control ─── */
 function setSpeed(rate) {
+  if (!SPEED_OPTIONS.includes(rate)) return;
   currentPlaybackRate = rate;
+  const select = document.getElementById('speed-select');
+  if (select) select.value = String(rate);
   document.querySelectorAll('[data-speed]').forEach(btn => {
     btn.classList.toggle('active', Number(btn.dataset.speed) === rate);
   });

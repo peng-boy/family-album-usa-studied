@@ -78,6 +78,10 @@
   function createSentencePlayer(audio, lines) {
     let mode = 'continuous';
     let selected = -1;
+    let ab = null;
+    function boundsForMode() {
+      return mode === 'ab' ? ab : sentenceBounds(lines, selected, audio.duration);
+    }
     let frame = null;
     let disposed = false;
     function selectAtTime() {
@@ -89,13 +93,13 @@
       frame = null;
     }
     function enforce() {
-      if (mode === 'continuous' || selected < 0 || audio.paused) return;
-      const bounds = sentenceBounds(lines, selected, audio.duration);
+      if (mode === 'continuous' || (mode !== 'ab' && selected < 0) || audio.paused) return;
+      const bounds = boundsForMode();
       if (!bounds) return;
-      if (audio.currentTime >= bounds.end - 0.01 || audio.ended) {
+      if (audio.currentTime >= bounds.end - 0.01 || audio.ended || (mode === 'ab' && audio.currentTime < bounds.start)) {
         if (mode === 'once') audio.pause();
         audio.currentTime = bounds.start;
-        if (mode === 'loop' && audio.paused) audio.play().catch(() => {});
+        if ((mode === 'loop' || mode === 'ab') && audio.paused) audio.play().catch(() => {});
       }
     }
     function tick() {
@@ -110,30 +114,37 @@
       tick();
     }
     function onSeek() {
-      if (mode === 'continuous') return;
+      if (mode === 'continuous' || mode === 'ab') return;
       const bounds = sentenceBounds(lines, selected, audio.duration);
       if (!bounds || audio.currentTime < bounds.start || audio.currentTime >= bounds.end) selectAtTime();
     }
     function onEnded() {
       stopFrame();
-      if (mode === 'continuous' || selected < 0) return;
-      const bounds = sentenceBounds(lines, selected, audio.duration);
+      if (mode === 'continuous' || (mode !== 'ab' && selected < 0)) return;
+      const bounds = boundsForMode();
       if (!bounds) return;
       audio.currentTime = bounds.start;
-      if (mode === 'loop') audio.play().catch(() => {});
+      if (mode === 'loop' || mode === 'ab') audio.play().catch(() => {});
     }
     const events = { play: onPlay, pause: stopFrame, seeking: onSeek, timeupdate: enforce, ended: onEnded };
     Object.entries(events).forEach(([name, fn]) => audio.addEventListener(name, fn));
     return {
       setMode(value) {
-        if (!['continuous', 'once', 'loop'].includes(value)) return;
+        if (!['continuous', 'once', 'loop', 'ab'].includes(value)) return;
         mode = value;
         if (mode !== 'continuous') {
           selectAtTime();
-          const bounds = sentenceBounds(lines, selected, audio.duration);
-          if (bounds && audio.currentTime < bounds.start) audio.currentTime = bounds.start;
+          const bounds = boundsForMode();
+          if (bounds && (audio.currentTime < bounds.start || (mode === 'ab' && audio.currentTime >= bounds.end))) audio.currentTime = bounds.start;
         }
       },
+      setAB(start, end) {
+        if (!Number.isFinite(start) || !Number.isFinite(end) || start < 0 || end - start < 0.2 ||
+            (Number.isFinite(audio.duration) && end > audio.duration)) return false;
+        ab = { start, end };
+        return true;
+      },
+      clearAB() { ab = null; if (mode === 'ab') mode = 'continuous'; },
       select(index) { selected = index; },
       dispose() {
         disposed = true;

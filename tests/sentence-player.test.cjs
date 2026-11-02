@@ -44,6 +44,30 @@ test('continuous mode does not stop and seeking selects another loop sentence',(
   assert.equal(f.audio.currentTime,4); f.cleanup();
 });
 
+test('A-B validates points, loops arbitrary sub-sentence range and clears safely',()=>{
+  const f=fixture();
+  assert.equal(f.player.setAB(4,3),false);
+  assert.equal(f.player.setAB(-1,3),false);
+  assert.equal(f.player.setAB(3,3.1),false);
+  assert.equal(f.player.setAB(3,11),false);
+  assert.equal(f.player.setAB(3.25,5.75),true);
+  f.player.setMode('ab'); assert.equal(f.audio.currentTime,3.25);
+  f.audio.play(); f.audio.currentTime=5.75; f.audio.dispatchEvent(new Event('timeupdate'));
+  assert.equal(f.audio.currentTime,3.25); assert.equal(f.audio.paused,false);
+  f.audio.currentTime=1;f.audio.dispatchEvent(new Event('timeupdate'));
+  assert.equal(f.audio.currentTime,3.25);
+  f.audio.pause();f.audio.currentTime=6;f.audio.dispatchEvent(new Event('timeupdate'));
+  assert.equal(f.audio.currentTime,6,'paused seeking is not forced back');
+  f.player.clearAB();f.audio.play();f.audio.currentTime=8;f.audio.dispatchEvent(new Event('timeupdate'));
+  assert.equal(f.audio.currentTime,8);f.cleanup();
+});
+
+test('A-B ending at audio duration restarts after ended',()=>{
+  const f=fixture();f.player.setAB(8,10);f.player.setMode('ab');f.audio.play();
+  f.audio.ended=true;f.audio.paused=true;f.audio.dispatchEvent(new Event('ended'));
+  assert.equal(f.audio.currentTime,8);assert.equal(f.audio.paused,false);f.cleanup();
+});
+
 test('last sentence loops on ended and once stays paused',()=>{
   const f=fixture(); f.audio.currentTime=7; f.player.setMode('loop'); f.audio.play();
   f.audio.currentTime=10; f.audio.paused=true; f.audio.ended=true; f.audio.dispatchEvent(new Event('ended'));
