@@ -1,0 +1,1813 @@
+{
+  "version": 1,
+  "acts": [
+    {
+      "version": 1,
+      "duration": 208.6545,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 39,
+      "lineCount": 75,
+      "anchorRatio": 0.52,
+      "reviewCount": 36,
+      "discontinuities": [],
+      "stableOffsetSeconds": 3.6,
+      "complete": true,
+      "ordered": true,
+      "key": "e03_a1",
+      "audioSha256": "7cf520ce03417022ddd0e274521b6fd20a1e3139bd6f70a66574efaa4b336696",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "5c97fdc0968dfff7105686eb554454da5ad1ec74a26ecf2c4f47e4c8b90ce734"
+    },
+    {
+      "version": 1,
+      "duration": 292.54825,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 44,
+      "lineCount": 80,
+      "anchorRatio": 0.55,
+      "reviewCount": 36,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e03_a2",
+      "audioSha256": "040e631dd05d6e6b2173e8706f767e4f65d2577c6a3a5fecf48adad18fec642a",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "f07fa4a8cf99979e0abd8abe96ad5dc05091d23c4b502742d0142ac0ec0102b3"
+    },
+    {
+      "version": 1,
+      "duration": 284.0496875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 26,
+      "lineCount": 70,
+      "anchorRatio": 0.371,
+      "reviewCount": 44,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e03_a3",
+      "audioSha256": "95a0400410481101e9fab2e90b752b84f1f8a89e4385c89c9e848074e092dfb0",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "1dcac1e9805510f06209cfea7ab23fcc29a8567a81c51f0df9e3db982f0ceb94"
+    },
+    {
+      "version": 1,
+      "duration": 247.408625,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 27,
+      "lineCount": 64,
+      "anchorRatio": 0.422,
+      "reviewCount": 37,
+      "discontinuities": [],
+      "stableOffsetSeconds": 20.06,
+      "complete": true,
+      "ordered": true,
+      "key": "e04_a1",
+      "audioSha256": "92cdc984d408160f00d1d6b453cb1b3f05b3e57fa05afe24861e1441c96cd438",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "1bdecf19a3a66b568b316f20e56f3913db8654a2db456232e214a46adbe306d9"
+    },
+    {
+      "version": 1,
+      "duration": 236.1005,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 16,
+      "lineCount": 53,
+      "anchorRatio": 0.302,
+      "reviewCount": 37,
+      "discontinuities": [],
+      "stableOffsetSeconds": 15.71,
+      "complete": true,
+      "ordered": true,
+      "key": "e04_a2",
+      "audioSha256": "91a15d66fe2a6e193e57a7969757803dfb2737aa93be996fc0dad4029c762c45",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "1fcadee4628a15706af3c0bbffac0dc6fc3cf46cb13b286152390f4abd4e2638"
+    },
+    {
+      "version": 1,
+      "duration": 270.210625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 26,
+      "lineCount": 64,
+      "anchorRatio": 0.406,
+      "reviewCount": 38,
+      "discontinuities": [
+        {
+          "afterLine": 27,
+          "beforeLine": 39,
+          "offsetChange": -31.57
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e04_a3",
+      "audioSha256": "92c697033d4b0930de8c06129cbb433cba954f4036ea6c23892fd35a485b67ed",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "9bcc95539d7b43bbf63231a834455c963486567b916c42eb036f4555fc3d9d6f"
+    },
+    {
+      "version": 1,
+      "duration": 229.36675,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 28,
+      "lineCount": 77,
+      "anchorRatio": 0.364,
+      "reviewCount": 49,
+      "discontinuities": [],
+      "stableOffsetSeconds": 17.865,
+      "complete": true,
+      "ordered": true,
+      "key": "e05_a1",
+      "audioSha256": "2429c55524e1dd406bbfa7ee1ef7ccfdc04a55990c567a6959e08b146db6a8b2",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "463c6654980630dd846d6e9cfa8b1687d9ff0533472c0129fc2995ee3d40ebaf"
+    },
+    {
+      "version": 1,
+      "duration": 278.7788125,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 18,
+      "lineCount": 80,
+      "anchorRatio": 0.225,
+      "reviewCount": 62,
+      "discontinuities": [],
+      "stableOffsetSeconds": 8.085,
+      "complete": true,
+      "ordered": true,
+      "key": "e05_a2",
+      "audioSha256": "3e29a5a915841d548183c488bdc2c90b1e7c5f3089895d45599dbef7958f3d72",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "9487842d4d48666ee97b56cc1f2ef29ddccb3d13e721af9cce3c8ef718f95fe6"
+    },
+    {
+      "version": 1,
+      "duration": 258.3684375,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 38,
+      "lineCount": 80,
+      "anchorRatio": 0.475,
+      "reviewCount": 42,
+      "discontinuities": [],
+      "stableOffsetSeconds": -1.32,
+      "complete": true,
+      "ordered": true,
+      "key": "e05_a3",
+      "audioSha256": "34ba4532a0e98ce3e86b38bc64f4e4cd1c82e6e1d0aa6b06fec7fcfd906e5671",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "cb4a1b9e88937b028488b70ed386d5d3086d646d240e12b4fd2557180db19cbd"
+    },
+    {
+      "version": 1,
+      "duration": 323.5004375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 28,
+      "lineCount": 88,
+      "anchorRatio": 0.318,
+      "reviewCount": 60,
+      "discontinuities": [
+        {
+          "afterLine": 9,
+          "beforeLine": 11,
+          "offsetChange": -4.86
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e06_a1",
+      "audioSha256": "e1acc7ab97232b5f5b88d1ff561e806a3ef44a2ba1434e1d19aa35fb289b3ac2",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "aeca8a7eeb7ef5c38193e0bc581e1bbdec93a38fb87e430ad3149769d3949425"
+    },
+    {
+      "version": 1,
+      "duration": 181.0691875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 22,
+      "lineCount": 58,
+      "anchorRatio": 0.379,
+      "reviewCount": 36,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e06_a2",
+      "audioSha256": "d44cca114a544b39b1691e7957cda57381c07d2b3ccc753d1154c80e8e5dc719",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "9a91f12a332ae0911024d4bf0a34be958fc69d3dd96f3a72343315a835a43ac0"
+    },
+    {
+      "version": 1,
+      "duration": 286.4878125,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 46,
+      "lineCount": 112,
+      "anchorRatio": 0.411,
+      "reviewCount": 66,
+      "discontinuities": [],
+      "stableOffsetSeconds": -2.075,
+      "complete": true,
+      "ordered": true,
+      "key": "e06_a3",
+      "audioSha256": "0316c90fc08054108e5b697451d20dbe5d09744e31d61c69da5f474de4c02ad9",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "25133adca8e55ca58f535868460d7889b080aa2cf59aa768f27a140234fe5dfb"
+    },
+    {
+      "version": 1,
+      "duration": 245.3885,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 41,
+      "lineCount": 75,
+      "anchorRatio": 0.547,
+      "reviewCount": 34,
+      "discontinuities": [],
+      "stableOffsetSeconds": -0.91,
+      "complete": true,
+      "ordered": true,
+      "key": "e07_a1",
+      "audioSha256": "59aee0f0f28534eac8730eca46047b80e680e1c47fc9e76ff551b35055c5ac5a",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "dd63629e7fc4bf6f7af2e8e7ef2629fd59ebd0d04171cc6ba65b0ac576fc5c31"
+    },
+    {
+      "version": 1,
+      "duration": 246.94425,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 47,
+      "lineCount": 89,
+      "anchorRatio": 0.528,
+      "reviewCount": 42,
+      "discontinuities": [
+        {
+          "afterLine": 64,
+          "beforeLine": 66,
+          "offsetChange": 2.04
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e07_a2",
+      "audioSha256": "b0eb1c6c5e581a91e8a54551d2a173b2d6c3bfe4679efa7cafcd9cc4733ae586",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "f64b4296df74b73d14a3408d369c9b3f4deeeb47c767286987f5f4dfb9719426"
+    },
+    {
+      "version": 1,
+      "duration": 275.7834375,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 61,
+      "lineCount": 117,
+      "anchorRatio": 0.521,
+      "reviewCount": 56,
+      "discontinuities": [],
+      "stableOffsetSeconds": 3.52,
+      "complete": true,
+      "ordered": true,
+      "key": "e07_a3",
+      "audioSha256": "30c725000626e7d325278bde6e7b17800afab0419287f4284f5f7a9f283ff636",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "23c9160d337ddf202235251bb14aa8f29773e26a4015d029ee603094bd0fa858"
+    },
+    {
+      "version": 1,
+      "duration": 200.8061875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 37,
+      "lineCount": 69,
+      "anchorRatio": 0.536,
+      "reviewCount": 32,
+      "discontinuities": [
+        {
+          "afterLine": 37,
+          "beforeLine": 44,
+          "offsetChange": -10.13
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e08_a1",
+      "audioSha256": "8f5adcc8005894c144909ecbaf3eafb275bb1faef28c9bd7f5545241f338486c",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "def8f07aab8dc5f7391bc8de189b34e94d4a16afbab992af805d6dbe264395a8"
+    },
+    {
+      "version": 1,
+      "duration": 239.6531875,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 29,
+      "lineCount": 101,
+      "anchorRatio": 0.287,
+      "reviewCount": 72,
+      "discontinuities": [],
+      "stableOffsetSeconds": -2.96,
+      "complete": true,
+      "ordered": true,
+      "key": "e08_a2",
+      "audioSha256": "a74b6c0ba16b4879de4e0a5fce87aaf936a27fe876f8f503ed3e7de6bee36e81",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "ed5844984ad9d59bccd6358a920785807fb379cb570498db52ad86107a562517"
+    },
+    {
+      "version": 1,
+      "duration": 315.0019375,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 33,
+      "lineCount": 75,
+      "anchorRatio": 0.44,
+      "reviewCount": 42,
+      "discontinuities": [],
+      "stableOffsetSeconds": 27.03,
+      "complete": true,
+      "ordered": true,
+      "key": "e08_a3",
+      "audioSha256": "22d19f73dd7a69b746a72216e3b98bca087528153f060d395039f3e246fe91d7",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "a098c82850cab783eed4ff1b582f22d4a2c0beb758af0e5acf7dd81b3e2a577a"
+    },
+    {
+      "version": 1,
+      "duration": 259.9009375,
+      "eligible": false,
+      "blockedReasons": [
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 16,
+      "lineCount": 94,
+      "anchorRatio": 0.17,
+      "reviewCount": 78,
+      "discontinuities": [],
+      "stableOffsetSeconds": -0.005,
+      "complete": true,
+      "ordered": true,
+      "key": "e09_a1",
+      "audioSha256": "851f228f97c62d75aab137b1c9a59f66a40f47fdbf4745961ced0b1d8503abcb",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "9e5d00b95f3f48308a0450eb19bc697e5d696258c8a19673cc408d526a56ebfd"
+    },
+    {
+      "version": 1,
+      "duration": 215.922375,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 34,
+      "lineCount": 79,
+      "anchorRatio": 0.43,
+      "reviewCount": 45,
+      "discontinuities": [],
+      "stableOffsetSeconds": 6.02,
+      "complete": true,
+      "ordered": true,
+      "key": "e09_a2",
+      "audioSha256": "e64fca5cf1a827071dcae4c2979bbf615e8ec8f5357f99e2d49831b2b97b4b15",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "12537420fbcb3c6659926ba4adb21b0a7cf03a89e8ba8e3be520896a81502296"
+    },
+    {
+      "version": 1,
+      "duration": 301.0699375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 60,
+      "lineCount": 103,
+      "anchorRatio": 0.583,
+      "reviewCount": 43,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e09_a3",
+      "audioSha256": "3983f0aa81838d4c8db516a908501e5cb8bf9d8af6422078ce40884333abd995",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "9312c791dcc3e16421991e45e65f93009adb9afba56a6fdb4d818689c2187f92"
+    },
+    {
+      "version": 1,
+      "duration": 257.5789375,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 39,
+      "lineCount": 92,
+      "anchorRatio": 0.424,
+      "reviewCount": 53,
+      "discontinuities": [],
+      "stableOffsetSeconds": 14.24,
+      "complete": true,
+      "ordered": true,
+      "key": "e10_a1",
+      "audioSha256": "037e15ddeb58f10c7221ef3365fa0a2c67b0da93ec5f4d0a7f9872c5d6120d18",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "0d98a7cc65903f423256a84dff5cb6ff2cb3de43719e981a8d92ebcecc99adec"
+    },
+    {
+      "version": 1,
+      "duration": 280.822125,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 47,
+      "lineCount": 93,
+      "anchorRatio": 0.505,
+      "reviewCount": 46,
+      "discontinuities": [],
+      "stableOffsetSeconds": 7.99,
+      "complete": true,
+      "ordered": true,
+      "key": "e10_a2",
+      "audioSha256": "d516359ff685e41cf8ffcf17b6f9b14f1b913096bc16870a542561ec6f5bc416",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "992319833e996d9af2e949fe6591c16a27899d40e711ca084ae3cce7a4c789c3"
+    },
+    {
+      "version": 1,
+      "duration": 168.9019375,
+      "eligible": true,
+      "blockedReasons": [],
+      "anchorCount": 22,
+      "lineCount": 53,
+      "anchorRatio": 0.415,
+      "reviewCount": 31,
+      "discontinuities": [],
+      "stableOffsetSeconds": 57.97,
+      "complete": true,
+      "ordered": true,
+      "key": "e10_a3",
+      "audioSha256": "58290eb6c1362e1303fb62e4a80b60942e5f3b718a7f40077b5bfe71bc7ba8d8",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "4b1ebeacfc6ab8793d3221fbff6c2ab0e2d40ceef4beb387f9b2c12608f65b6a"
+    },
+    {
+      "version": 1,
+      "duration": 221.61125,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 39,
+      "lineCount": 77,
+      "anchorRatio": 0.506,
+      "reviewCount": 38,
+      "discontinuities": [
+        {
+          "afterLine": 38,
+          "beforeLine": 40,
+          "offsetChange": 2.16
+        },
+        {
+          "afterLine": 40,
+          "beforeLine": 41,
+          "offsetChange": -2.14
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e11_a1",
+      "audioSha256": "f57d3c3696e9eb6ca96b886eb0d31fcc9283be470ba77305406b77eb6b066d87",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "7238ddf827b544cf2110ffe051ce70143ea36575622166561d2d9f901f61549e"
+    },
+    {
+      "version": 1,
+      "duration": 247.408625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 69,
+      "lineCount": 110,
+      "anchorRatio": 0.627,
+      "reviewCount": 41,
+      "discontinuities": [
+        {
+          "afterLine": 97,
+          "beforeLine": 99,
+          "offsetChange": -2.39
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e11_a2",
+      "audioSha256": "5b6ee867398bdfb97eae91a0b0332f3eb23d2f4e7d59701f5918a0d6b4ec95ef",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "06bbde04b9fe9b1626b95182fdc8b33930582cb5ef2eb9c529a92f0cb5034c6a"
+    },
+    {
+      "version": 1,
+      "duration": 289.738625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 50,
+      "lineCount": 98,
+      "anchorRatio": 0.51,
+      "reviewCount": 48,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e11_a3",
+      "audioSha256": "dc0a7c57ddc8f2f2e3f4782ef45a62b88175446da4c92d8991cf351e09a7e13e",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "af57e45a90043b4462b644ed8f69ef30e1e137f6515bd2380cbf972baf484ff3"
+    },
+    {
+      "version": 1,
+      "duration": 174.172875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 33,
+      "lineCount": 63,
+      "anchorRatio": 0.524,
+      "reviewCount": 30,
+      "discontinuities": [],
+      "stableOffsetSeconds": 64.46,
+      "complete": false,
+      "ordered": false,
+      "key": "e12_a1",
+      "audioSha256": "900b992f6b041d537b512a5511e624332e6acbe1c4440a6b2cd31944ae06d403",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "a50828dec849246abd995f44aecdcdd90a9f0ea00d5e45c25942c36658329f9d"
+    },
+    {
+      "version": 1,
+      "duration": 160.5195625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 33,
+      "lineCount": 62,
+      "anchorRatio": 0.532,
+      "reviewCount": 29,
+      "discontinuities": [
+        {
+          "afterLine": 53,
+          "beforeLine": 55,
+          "offsetChange": 2.5
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e12_a2",
+      "audioSha256": "2f517a1f48f3fc11e71621c4f867035d0a828eb4522d3bfaa7a159de8ddeac67",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "2706bc71fc7e3f35eb671f06d793f2191e2289abe6e3e1ef889f63e8a1423f8d"
+    },
+    {
+      "version": 1,
+      "duration": 370.311875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 77,
+      "lineCount": 141,
+      "anchorRatio": 0.546,
+      "reviewCount": 64,
+      "discontinuities": [
+        {
+          "afterLine": 77,
+          "beforeLine": 80,
+          "offsetChange": -23.49
+        },
+        {
+          "afterLine": 101,
+          "beforeLine": 103,
+          "offsetChange": -2.03
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e12_a3",
+      "audioSha256": "33492a7351903cf1f9168c3686586c187d4298264ca1f462491c7a739b5069f3",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "f42b013fdee4cb3938f2aee7dd0c1c539e352d909b3799fbc6f1ea27dbeffc61"
+    },
+    {
+      "version": 1,
+      "duration": 323.26825,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 40,
+      "lineCount": 97,
+      "anchorRatio": 0.412,
+      "reviewCount": 57,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e13_a1",
+      "audioSha256": "648475c7c65359ca80ae853d72b8bd135bd784d1592630e15d2384e025528be1",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "882937359c4d9f3aa17ec6fa4fadaeeab9fbc2d22de3fe1a204ffa791bc6d0a4"
+    },
+    {
+      "version": 1,
+      "duration": 175.1016875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 25,
+      "lineCount": 50,
+      "anchorRatio": 0.5,
+      "reviewCount": 25,
+      "discontinuities": [],
+      "stableOffsetSeconds": 25.54,
+      "complete": false,
+      "ordered": false,
+      "key": "e13_a2",
+      "audioSha256": "7c7c63720411160dc15c18c2929458c5cd51be53e526bb2e0babbbd90c133f40",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "63d2c93ac770272768a3c2bf042281b8a04953f20766914c90633fd6231ac76c"
+    },
+    {
+      "version": 1,
+      "duration": 248.9875625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 35,
+      "lineCount": 75,
+      "anchorRatio": 0.467,
+      "reviewCount": 40,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e13_a3",
+      "audioSha256": "be426aba506dd9df1019766ed12ba44ec6275d3050fe21fcb5ac52439dec44b6",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "ccf9b65a7fc6514b578ce8fa6fbfa6a0ce2bdf2d79978408c702ac533d88a98e"
+    },
+    {
+      "version": 1,
+      "duration": 222.215,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 52,
+      "lineCount": 93,
+      "anchorRatio": 0.559,
+      "reviewCount": 41,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e14_a1",
+      "audioSha256": "a99f1be6e779649b92755d8f5503afd27447c18786595fc338944544f2d8b4d8",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "5f15ac42199b96a5c5a160a766acbc02de0fb6f59178fd441a1718aa8c632296"
+    },
+    {
+      "version": 1,
+      "duration": 312.540625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 50,
+      "lineCount": 118,
+      "anchorRatio": 0.424,
+      "reviewCount": 68,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e14_a2",
+      "audioSha256": "c73abfe321de6769c4c3160269133382cd80a8313b0204d06287036d9a9281c4",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "8dd46e399529ad349182c5e83947cd409c724028a47e4f21fa76369be5677346"
+    },
+    {
+      "version": 1,
+      "duration": 238.4689375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 39,
+      "lineCount": 65,
+      "anchorRatio": 0.6,
+      "reviewCount": 26,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e14_a3",
+      "audioSha256": "e948c5b897c503e49f8cdca594fda4262f68669e3f0f377c3d4e95a519cc72bd",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "2c8b983b92b8b400380fbac5463875fd420085409f630605dfeb5d82c335b9f0"
+    },
+    {
+      "version": 1,
+      "duration": 268.8174375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 39,
+      "lineCount": 79,
+      "anchorRatio": 0.494,
+      "reviewCount": 40,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e15_a1",
+      "audioSha256": "39c3de276e558c02e26c9697dc9ed3028d037fff04ae8dc8c0196110b2603441",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "87b0817483095c603916a7f9ea0544afa32098418c9b94d14193315dfbcfa128"
+    },
+    {
+      "version": 1,
+      "duration": 291.642625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 31,
+      "lineCount": 65,
+      "anchorRatio": 0.477,
+      "reviewCount": 34,
+      "discontinuities": [
+        {
+          "afterLine": 2,
+          "beforeLine": 9,
+          "offsetChange": -2.01
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e15_a2",
+      "audioSha256": "7487097d22d2c0acabf1b6819077138ff2f0fab25801606829077885a7183c68",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "e7db091777f2ee1797696938194724967c577bd9942c2a66fcf6e42b44168f8a"
+    },
+    {
+      "version": 1,
+      "duration": 224.72275,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 38,
+      "lineCount": 62,
+      "anchorRatio": 0.613,
+      "reviewCount": 24,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e15_a3",
+      "audioSha256": "4533ba2bba15db069a34a001dbf2d4c478e9a5d531041b6aec849de09b5ea4b7",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "777b95c73cc24e0bf57a25fbd77ae4e9b7b4c282a956a803448dd5019a46145a"
+    },
+    {
+      "version": 1,
+      "duration": 485.227375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 46,
+      "lineCount": 83,
+      "anchorRatio": 0.554,
+      "reviewCount": 37,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e16_a1",
+      "audioSha256": "9954019686383bd9515a8e587b6e4c8e0c5cb01a6c149dfab6ce9ef8a8e1e109",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "c777457b4cdf3f53091d41ed44848aa3a01142f9fb276914f49f29d439416c99"
+    },
+    {
+      "version": 1,
+      "duration": 426.0629375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 21,
+      "lineCount": 58,
+      "anchorRatio": 0.362,
+      "reviewCount": 37,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e16_a2",
+      "audioSha256": "88a5f84c71c740636d688770b030a476afe4407842ad6a29b38679f141ba34be",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "49ae97a226bf3450004e6750186ef1d1334b9f11323fce029c126702ab957174"
+    },
+    {
+      "version": 1,
+      "duration": 500.0649375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 36,
+      "lineCount": 98,
+      "anchorRatio": 0.367,
+      "reviewCount": 62,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e16_a3",
+      "audioSha256": "8b107701b7390c9a5ea210b719aa5af32bd826a16d412468aed8e65df952d8f2",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "95b8f2032893a43d56061f9325535adafc7484c17c8d471c0ea1e22c8a632606"
+    },
+    {
+      "version": 1,
+      "duration": 510.4906875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 32,
+      "lineCount": 58,
+      "anchorRatio": 0.552,
+      "reviewCount": 26,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e17_a1",
+      "audioSha256": "80ff3dfa804f79b23e6b1d614a27926e65abdaf293307ad4ed306aa6996e0134",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "a254df3c5d13a809fa9181a74fec653156971df7e3f2d147acf0d4b1755e0b8e"
+    },
+    {
+      "version": 1,
+      "duration": 424.8090625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 35,
+      "lineCount": 71,
+      "anchorRatio": 0.493,
+      "reviewCount": 36,
+      "discontinuities": [
+        {
+          "afterLine": 50,
+          "beforeLine": 52,
+          "offsetChange": 2.5
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e17_a2",
+      "audioSha256": "23ed488c3fce18de4fabf08c424407c4ca6aef16e7a91864b577e0a787d9c5bd",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "ea136333104f6805628cc8d46b617afde2abde3acdb37464ff8992a39fd91033"
+    },
+    {
+      "version": 1,
+      "duration": 476.7985625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 19,
+      "lineCount": 44,
+      "anchorRatio": 0.432,
+      "reviewCount": 25,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e17_a3",
+      "audioSha256": "dd21e07bfe30427d9d5ea983cab9deda51add58b00ba757f7d44e77b586af920",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "bdaa7d67d844c0d07d4fe62dba317d42c8c5c03c51aae45a15b9d6eaa65bf955"
+    },
+    {
+      "version": 1,
+      "duration": 530.576,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 78,
+      "lineCount": 120,
+      "anchorRatio": 0.65,
+      "reviewCount": 42,
+      "discontinuities": [
+        {
+          "afterLine": 113,
+          "beforeLine": 114,
+          "offsetChange": 2.34
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e18_a1",
+      "audioSha256": "c5737306792863f86196354e29750cc261f7dc9d014273791420857bd806d13c",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "4032b2a24712851715acfbf81f4bfd87869fe5d8893ebac77c2874223f58ccd4"
+    },
+    {
+      "version": 1,
+      "duration": 333.9029375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 0,
+      "lineCount": 38,
+      "anchorRatio": 0.0,
+      "reviewCount": 38,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e18_a2",
+      "audioSha256": "ea7de7f89d154722f25731ad514c7e401c7e99924053cd4532ebc31a59141bfa",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "d6f009471d473b3b3a20a123e886dda9d7569ad8e8cd9d5113a22f48e19bd829"
+    },
+    {
+      "version": 1,
+      "duration": 553.5173125,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 0,
+      "lineCount": 46,
+      "anchorRatio": 0.0,
+      "reviewCount": 46,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e18_a3",
+      "audioSha256": "11c340db13b07b906ce921ff6dd9947eafd337df542e35a26964e71402b11e96",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "f8fe6421ebc70efecdd329edab80c9029484c8f91e139ff33d999f607cb0f5c1"
+    },
+    {
+      "version": 1,
+      "duration": 541.2339375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 0,
+      "lineCount": 62,
+      "anchorRatio": 0.0,
+      "reviewCount": 62,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e19_a1",
+      "audioSha256": "554642ecb076d932bd9cbd227bd4e76848237ebc2309434f4d8893921d34b6fd",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "ff6251a30d52febb996a7e7e9a14aa283b9895de5489e1965a64d50931a5db22"
+    },
+    {
+      "version": 1,
+      "duration": 454.0894375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 0,
+      "lineCount": 38,
+      "anchorRatio": 0.0,
+      "reviewCount": 38,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e19_a2",
+      "audioSha256": "cafe23bd5d2090c26aa7ea2b472b1c5d5f9040906fd88429efc80efc0a361460",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "460a0947ec65715652f49adefc1f7bb06b16a9e04751d1f7231ee3ad2a164c4d"
+    },
+    {
+      "version": 1,
+      "duration": 414.545875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 0,
+      "lineCount": 13,
+      "anchorRatio": 0.0,
+      "reviewCount": 13,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e19_a3",
+      "audioSha256": "0bc49e8303e487de56a59a2e74cc5fa8ee0b3335b22ae90e12c6dfcd998984ec",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "a8cfda22a54d08964caff315fba135063c4f7ea0e3fa7d2044d8f64a0d734680"
+    },
+    {
+      "version": 1,
+      "duration": 457.9671875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 37,
+      "lineCount": 73,
+      "anchorRatio": 0.507,
+      "reviewCount": 36,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e20_a1",
+      "audioSha256": "a9ea741b62732ce5c6abb1926d87a3648df426e741b199115f34ac9481328004",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "a7dffec25ad5170ce08a81b46c629008bfca2a79371ef40ed3797181de7eb0cd"
+    },
+    {
+      "version": 1,
+      "duration": 400.5906875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 48,
+      "lineCount": 92,
+      "anchorRatio": 0.522,
+      "reviewCount": 44,
+      "discontinuities": [
+        {
+          "afterLine": 35,
+          "beforeLine": 36,
+          "offsetChange": -2.06
+        },
+        {
+          "afterLine": 57,
+          "beforeLine": 58,
+          "offsetChange": 2.34
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e20_a2",
+      "audioSha256": "e121f492ca7a1f20bf719e404f722995839d2095abcf727c607fd3d1258ec834",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "7bbc5acaf9aa95c0207eae6e39067ab7f35d6ef7124b52235693215c468d35be"
+    },
+    {
+      "version": 1,
+      "duration": 552.681375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 51,
+      "lineCount": 112,
+      "anchorRatio": 0.455,
+      "reviewCount": 61,
+      "discontinuities": [
+        {
+          "afterLine": 43,
+          "beforeLine": 45,
+          "offsetChange": -2.24
+        },
+        {
+          "afterLine": 96,
+          "beforeLine": 98,
+          "offsetChange": -85.5
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e20_a3",
+      "audioSha256": "5a714d52a1b308a634033beeb9b34aefc7b4bdfe8623b9d4a26c17071ac7457a",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "f201664eb76f915014fcb78a8f9e641d30d5b1f6a77fafbac0d429dc335c9a44"
+    },
+    {
+      "version": 1,
+      "duration": 470.3434375,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 43,
+      "lineCount": 75,
+      "anchorRatio": 0.573,
+      "reviewCount": 32,
+      "discontinuities": [
+        {
+          "afterLine": 6,
+          "beforeLine": 9,
+          "offsetChange": -2.38
+        },
+        {
+          "afterLine": 9,
+          "beforeLine": 10,
+          "offsetChange": 2.38
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e21_a1",
+      "audioSha256": "f1b00e242a258aede660aea6e6e638ea2473747a2476cbb4a92171aa8ee8b2e7",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "3db35f79a5ea2c849fff56193ed37b177d7cb2cb68619e7ca711bbc2246f971d"
+    },
+    {
+      "version": 1,
+      "duration": 495.02625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 52,
+      "lineCount": 97,
+      "anchorRatio": 0.536,
+      "reviewCount": 45,
+      "discontinuities": [
+        {
+          "afterLine": 27,
+          "beforeLine": 28,
+          "offsetChange": -2.48
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e21_a2",
+      "audioSha256": "9a32f3f99a2d82943562d77ab1d1dfbcc916943d74f6c352ea66d8271fb0ea93",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "704138c09142069d8c65a9ebd20504936904bbf22919958af33485bb4eba2a39"
+    },
+    {
+      "version": 1,
+      "duration": 447.193125,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 49,
+      "lineCount": 80,
+      "anchorRatio": 0.613,
+      "reviewCount": 31,
+      "discontinuities": [
+        {
+          "afterLine": 21,
+          "beforeLine": 22,
+          "offsetChange": 2.36
+        },
+        {
+          "afterLine": 73,
+          "beforeLine": 75,
+          "offsetChange": 2.54
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e21_a3",
+      "audioSha256": "b4b435ed0f3fcfa2fb38ab347971def7cd7effce089059ceed665c4dc1b9edbf",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "6258345c441dc5ffd109e094b1c7e2c6b5e47fed4087c040d0187511458d5230"
+    },
+    {
+      "version": 1,
+      "duration": 418.2610625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 33,
+      "lineCount": 63,
+      "anchorRatio": 0.524,
+      "reviewCount": 30,
+      "discontinuities": [
+        {
+          "afterLine": 11,
+          "beforeLine": 13,
+          "offsetChange": -2.28
+        },
+        {
+          "afterLine": 29,
+          "beforeLine": 30,
+          "offsetChange": -2.34
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e22_a1",
+      "audioSha256": "3634c940fc9b64f55c10d343f2294bd67e5807f9a46204abc8305fbee14445db",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "41d53ee912d772fa9a5e6469ecb1646ff937911ef4b66e5fa05dea5977596373"
+    },
+    {
+      "version": 1,
+      "duration": 547.1085625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 78,
+      "lineCount": 130,
+      "anchorRatio": 0.6,
+      "reviewCount": 52,
+      "discontinuities": [
+        {
+          "afterLine": 16,
+          "beforeLine": 22,
+          "offsetChange": 2.84
+        },
+        {
+          "afterLine": 22,
+          "beforeLine": 23,
+          "offsetChange": -3.4
+        },
+        {
+          "afterLine": 23,
+          "beforeLine": 28,
+          "offsetChange": 2.56
+        },
+        {
+          "afterLine": 31,
+          "beforeLine": 32,
+          "offsetChange": -2.0
+        },
+        {
+          "afterLine": 94,
+          "beforeLine": 95,
+          "offsetChange": -3.04
+        },
+        {
+          "afterLine": 95,
+          "beforeLine": 96,
+          "offsetChange": 2.34
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e22_a2",
+      "audioSha256": "2ead99f0a68b424ab59470ecc6df74091a23dace1f2fa75225fb597683cabac8",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "00591d622b016b3e7bbd6fd715dd1173d60199a3ab667f7edc1b974176d97546"
+    },
+    {
+      "version": 1,
+      "duration": 445.7070625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 44,
+      "lineCount": 97,
+      "anchorRatio": 0.454,
+      "reviewCount": 53,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e22_a3",
+      "audioSha256": "dd856cff3d4926998e89e292e32a7725c9d47f77ae410e7d89a5d0e0d2082950",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "806ce4d4533fa9f4db2c93ab5954b7cf22aa4bbc0add4860e84664b62b3a6794"
+    },
+    {
+      "version": 1,
+      "duration": 534.5465625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 49,
+      "lineCount": 93,
+      "anchorRatio": 0.527,
+      "reviewCount": 44,
+      "discontinuities": [
+        {
+          "afterLine": 13,
+          "beforeLine": 14,
+          "offsetChange": -2.02
+        },
+        {
+          "afterLine": 14,
+          "beforeLine": 21,
+          "offsetChange": 2.14
+        },
+        {
+          "afterLine": 68,
+          "beforeLine": 70,
+          "offsetChange": -2.6
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e23_a1",
+      "audioSha256": "f735c8160da3bd38ffc34396dcb4ef026096c3ee7bc0bcbb0ab8ca3971479e1b",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "c49dea7b43df71997913a3a5e6a265337d6582112bf16726b6a26832c28215b5"
+    },
+    {
+      "version": 1,
+      "duration": 442.45625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 50,
+      "lineCount": 83,
+      "anchorRatio": 0.602,
+      "reviewCount": 33,
+      "discontinuities": [
+        {
+          "afterLine": 50,
+          "beforeLine": 52,
+          "offsetChange": -2.06
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e23_a2",
+      "audioSha256": "3f7de12f39478195f6989bc28e188cb7fc83fbad34463dad72c90edb8292aa35",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "00215f48fb05eeec2fb8ede047636b5ec62bc897241d54d3c90e3d5c25a47233"
+    },
+    {
+      "version": 1,
+      "duration": 437.1853125,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines"
+      ],
+      "anchorCount": 47,
+      "lineCount": 82,
+      "anchorRatio": 0.573,
+      "reviewCount": 35,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e23_a3",
+      "audioSha256": "9d1fe32c3b65e05add6ac1cc44449e94ebc319ae551b4e7b4896f76f689a4df5",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "c744a7cc380857391c2ae21051078e61e310769bb5fb294613935578f16b88c6"
+    },
+    {
+      "version": 1,
+      "duration": 595.5221875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 50,
+      "lineCount": 112,
+      "anchorRatio": 0.446,
+      "reviewCount": 62,
+      "discontinuities": [
+        {
+          "afterLine": 14,
+          "beforeLine": 18,
+          "offsetChange": 2.22
+        },
+        {
+          "afterLine": 20,
+          "beforeLine": 21,
+          "offsetChange": -3.38
+        },
+        {
+          "afterLine": 21,
+          "beforeLine": 22,
+          "offsetChange": 2.88
+        },
+        {
+          "afterLine": 27,
+          "beforeLine": 28,
+          "offsetChange": -2.04
+        },
+        {
+          "afterLine": 44,
+          "beforeLine": 46,
+          "offsetChange": -2.54
+        },
+        {
+          "afterLine": 95,
+          "beforeLine": 96,
+          "offsetChange": -3.28
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e24_a1",
+      "audioSha256": "bf545682014ed5748ff97f8b204ec3b488b8c180530f6c19dde84a9f71726d9d",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "35bc744bfd8c8b9120eb53be6bd1232f9f3e9bfc0acd12771dfdfa28540452b4"
+    },
+    {
+      "version": 1,
+      "duration": 420.4901875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 47,
+      "lineCount": 88,
+      "anchorRatio": 0.534,
+      "reviewCount": 41,
+      "discontinuities": [
+        {
+          "afterLine": 6,
+          "beforeLine": 8,
+          "offsetChange": 2.12
+        },
+        {
+          "afterLine": 49,
+          "beforeLine": 54,
+          "offsetChange": -2.06
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e24_a2",
+      "audioSha256": "699e787393df073ed9c23d136d200998dcca94f1f7960c3dff3fcb8246a641a7",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "96857bcdbe9fb81c6a1500cd738aa87193093ec19cfa437b43655437266439b6"
+    },
+    {
+      "version": 1,
+      "duration": 394.808875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 30,
+      "lineCount": 64,
+      "anchorRatio": 0.469,
+      "reviewCount": 34,
+      "discontinuities": [
+        {
+          "afterLine": 42,
+          "beforeLine": 43,
+          "offsetChange": -2.08
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e24_a3",
+      "audioSha256": "81234aa1fabae5d16986b6fdd0669d0dfa70b45c3803c73da45c9814f56e859d",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "f81eeb6b2bb20a7af02b6c446f8df6294d2ab20662c46dff6d38fcdf3d7ce470"
+    },
+    {
+      "version": 1,
+      "duration": 501.1795,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 39,
+      "lineCount": 93,
+      "anchorRatio": 0.419,
+      "reviewCount": 54,
+      "discontinuities": [
+        {
+          "afterLine": 20,
+          "beforeLine": 23,
+          "offsetChange": 2.2
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e25_a1",
+      "audioSha256": "d52c4dbc301b545bf0ded1a7a5d39b51650d454c6744fb6195135cf1afe526fd",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "d2e5ef5fa21306afcddd770779170b4f9f5b70e859e1f12b3850b5f85b19905e"
+    },
+    {
+      "version": 1,
+      "duration": 472.108125,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 45,
+      "lineCount": 95,
+      "anchorRatio": 0.474,
+      "reviewCount": 50,
+      "discontinuities": [
+        {
+          "afterLine": 60,
+          "beforeLine": 62,
+          "offsetChange": -2.14
+        },
+        {
+          "afterLine": 85,
+          "beforeLine": 86,
+          "offsetChange": -2.84
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e25_a2",
+      "audioSha256": "355dc319d5840b181be372982a6689e7cd28eb8f7955751bcefe06dc62a51f38",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "59b43c1aaa5347f433330e1dd54b2fbdb3c46a69679011597a89d66504b185e6"
+    },
+    {
+      "version": 1,
+      "duration": 440.5521875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence"
+      ],
+      "anchorCount": 31,
+      "lineCount": 76,
+      "anchorRatio": 0.408,
+      "reviewCount": 45,
+      "discontinuities": [],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e25_a3",
+      "audioSha256": "5c73aaf39ae7f7bf6b48939c43485cdae3fa890702f6fcf012176c6531f6c72c",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "896841df24319ae8402ac43662842d5ea5956fedf2f3807aa2f3b32c2655a148"
+    },
+    {
+      "version": 1,
+      "duration": 495.5138125,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 53,
+      "lineCount": 116,
+      "anchorRatio": 0.457,
+      "reviewCount": 63,
+      "discontinuities": [
+        {
+          "afterLine": 111,
+          "beforeLine": 113,
+          "offsetChange": -2.12
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e26_a1",
+      "audioSha256": "02dc3ef06c9500a1cc5cada5d4e1984b4a42494ed1110169bff1299634a04e72",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "d5a9ee5f1d4356859d9e6e0b9d92ea6ab0f2705e19ea204f12c624f28d3948dd"
+    },
+    {
+      "version": 1,
+      "duration": 374.3056875,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 35,
+      "lineCount": 91,
+      "anchorRatio": 0.385,
+      "reviewCount": 56,
+      "discontinuities": [
+        {
+          "afterLine": 10,
+          "beforeLine": 13,
+          "offsetChange": 2.38
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e26_a2",
+      "audioSha256": "c3ae74ee21031f7228cf58c30c9a8b5e4856268756013cd392312b855b4074ca",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "fa5699cf1d06d1141a3306bb6b3bed6dec7ce103057394f6b2977ad5a39d3504"
+    },
+    {
+      "version": 1,
+      "duration": 571.8610625,
+      "eligible": false,
+      "blockedReasons": [
+        "unresolved-lines",
+        "insufficient-anchor-evidence",
+        "unreviewed-scene-discontinuity"
+      ],
+      "anchorCount": 30,
+      "lineCount": 76,
+      "anchorRatio": 0.395,
+      "reviewCount": 46,
+      "discontinuities": [
+        {
+          "afterLine": 43,
+          "beforeLine": 46,
+          "offsetChange": -2.5
+        },
+        {
+          "afterLine": 50,
+          "beforeLine": 51,
+          "offsetChange": -2.1
+        }
+      ],
+      "stableOffsetSeconds": null,
+      "complete": false,
+      "ordered": false,
+      "key": "e26_a3",
+      "audioSha256": "2b97455d20af9cfabce470a2f2a34fdba255e9fee60aae1fe16eee3483201fe4",
+      "model": "base.en",
+      "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+      "transcriptSha256": "06b25d4836f0c241198187a8258e26b2d0c2f0224dc987be37420d9093bd9a18"
+    }
+  ],
+  "errors": []
+}

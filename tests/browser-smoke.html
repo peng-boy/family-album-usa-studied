@@ -1,0 +1,73 @@
+<!doctype html><meta charset="utf-8"><title>Running</title>
+<pre id="result">RUNNING</pre><iframe id="app" src="/index.html#ep1" width="1100" height="800"></iframe>
+<script>
+(async () => {
+  const frame = document.getElementById('app');
+  const result = document.getElementById('result');
+  const checks = [];
+  function check(value, message) { if (!value) throw new Error(message); checks.push(message); }
+  try {
+    await new Promise((resolve, reject) => {
+      const deadline = Date.now() + 10000;
+      const poll = setInterval(() => {
+        if (frame.contentDocument.querySelector('[data-seekable]')) { clearInterval(poll); resolve(); }
+        else if (Date.now() > deadline) { clearInterval(poll); reject(new Error('App loading timed out')); }
+      }, 50);
+    });
+    const w = frame.contentWindow, d = frame.contentDocument;
+    let audio = d.querySelector('audio');
+    check(d.querySelectorAll('.is-current').length === 0, 'No highlight during intro');
+    await new Promise((resolve, reject) => {
+      audio.addEventListener('loadedmetadata', resolve, { once: true });
+      audio.addEventListener('error', reject, { once: true });
+      audio.load();
+    });
+    const lesson = await (await fetch('/episodes.json')).json();
+    const lines = lesson.episodes[0].acts[0].lines;
+    check(Math.abs(lines[0].t - 13.04) < 0.1, 'First sentence uses actual audio calibration');
+    check(lines.every(line => line.t < audio.duration), 'All first-act timestamps fit audio duration');
+    audio.currentTime = lines[0].t; audio.dispatchEvent(new Event('seeking'));
+    check(d.querySelector('#line-0-0').classList.contains('is-current'), 'First sentence highlights');
+    audio.currentTime = lines[2].t; audio.dispatchEvent(new Event('timeupdate'));
+    check(d.querySelector('#line-0-2').getAttribute('aria-current') === 'true', 'Progress moves highlight');
+    audio.currentTime = 0; audio.dispatchEvent(new Event('seeked'));
+    check(d.querySelectorAll('.is-current').length === 0, 'Seeking back clears intro');
+    w.setSpeed(1.5);
+    check(audio.playbackRate === 1.5, 'Playback speed preserved');
+    const follow = d.querySelector('[aria-pressed]'); follow.click();
+    check(follow.getAttribute('aria-pressed') === 'false', 'Auto follow can be disabled');
+    d.querySelector('#line-0-1').click();
+    check(Math.abs(audio.currentTime - lines[1].t) < 0.1, 'Click seeks to sentence');
+    audio.pause();
+    w.selectAct(1);
+    check(audio.paused && d.querySelectorAll('.is-current').length === 0, 'Switching act stops old audio and clears highlight');
+    audio = d.querySelector('audio');
+    check(audio.playbackRate === 1.5, 'New act keeps speed');
+    w.goHome();
+    check(audio.paused && d.querySelector('#detail-wrap').style.display === 'none', 'Home stops playback');
+    // Exercise one newly batch-calibrated act using its served data, not a fixed timestamp.
+    let batchCase = null;
+    lesson.episodes.forEach((ep, ei) => ep.acts.forEach((act, ai) => {
+      if (!batchCase && act.timingCalibration?.method === 'batch-asr-text-alignment-v1') batchCase = { ei, ai, act };
+    }));
+    if (batchCase) {
+      w.openEpisode(batchCase.ei, batchCase.ai);
+      const audio = d.querySelector('audio');
+      await new Promise((resolve, reject) => {
+        const timeout = setTimeout(() => reject(new Error('Batch audio metadata timed out')), 8000);
+        audio.addEventListener('loadedmetadata', () => { clearTimeout(timeout); resolve(); }, { once: true });
+        audio.addEventListener('error', reject, { once: true });
+        audio.load();
+      });
+      const li = batchCase.act.lines.findIndex(line => line.timingSource === 'matched-anchor');
+      check(li >= 0, 'Batch-calibrated act has matched anchors');
+      const line = batchCase.act.lines[li];
+      audio.currentTime = line.t; audio.dispatchEvent(new Event('seeking'));
+      check(d.querySelector(`#line-${batchCase.ai}-${li}`).classList.contains('is-current'), 'Batch-calibrated sentence highlights');
+      check(batchCase.act.lines.every(line => line.t < audio.duration), 'Batch timestamps fit real browser audio duration');
+      w.goHome();
+    }
+    result.textContent = 'PASS\n' + checks.join('\n'); document.title = 'PASS';
+  } catch (error) { result.textContent = 'FAIL: ' + error.stack; document.title = 'FAIL'; }
+})();
+</script>

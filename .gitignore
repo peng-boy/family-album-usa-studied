@@ -27,5 +27,19 @@ check_braces.py
 audio_analysis.json
 audio-downloads/
 
+# 本地语音核对依赖及模型（无需部署）
+.tools/
+
+# 本地浏览器测试资料
+.browser-test-profile*/
+
+# 本地校准候选、原始识别及备份（可能很大，不发布）
+diagnostics/*.json
+diagnostics/batch/*-recognition.json
+diagnostics/batch/*-comparison.json
+!diagnostics/batch/*-alignment.json
+_site/
+*.tmp
+
 # 日志
 *.log

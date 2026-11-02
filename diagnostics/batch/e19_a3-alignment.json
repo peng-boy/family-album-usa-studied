@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "duration": 414.545875,
+  "eligible": false,
+  "blockedReasons": [
+    "unresolved-lines",
+    "insufficient-anchor-evidence"
+  ],
+  "anchorCount": 0,
+  "lineCount": 13,
+  "anchorRatio": 0.0,
+  "reviewCount": 13,
+  "discontinuities": [],
+  "stableOffsetSeconds": null,
+  "complete": false,
+  "ordered": false,
+  "lines": [
+    {
+      "line": 0,
+      "originalT": 0,
+      "en": "Judge: Philip…Ellen.",
+      "coverage": 0.0,
+      "asrStart": null,
+      "asrEnd": null,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 1,
+      "originalT": 0,
+      "en": "Philip: Ah, Judge.",
+      "coverage": 0.0,
+      "asrStart": null,
+      "asrEnd": null,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 2,
+      "originalT": 0,
+      "en": "Judge: How are you? How are you?",
+      "coverage": 0.0,
+      "asrStart": null,
+      "asrEnd": null,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 3,
+      "originalT": 0,
+      "en": "Ellen: Hello.",
+      "coverage": 0.0,
+      "asrStart": null,
+      "asrEnd": null,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 4,
+      "originalT": 0,
+      "en": "Judge: I think it’s time for the wedding to begin.",
+      "coverage": 0.273,
+      "asrStart": null,
+      "asrEnd": 4.98,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 5,
+      "originalT": 0,
+      "en": "Judge: All right, ladies and gentlemen. Please take your places. The wedding ceremony is about to begin.",
+      "coverage": 0.882,
+      "asrStart": 6.04,
+      "asrEnd": 14.4,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 6,
+      "originalT": 0,
+      "en": "Judge: OK, Jane. Start the music.",
+      "coverage": 0.833,
+      "asrStart": 19.64,
+      "asrEnd": 84.76,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 7,
+      "originalT": 0,
+      "en": "Judge: Dearly beloved, we are gathered here today to join this man and this woman in holy matrimony. Do either of you have any reason why you should not legally be joined in marriage? Is there anyone present who can show any just cause why these two people should not be legally joined in marriage? Then, Harry Bennett, do you take Susan Stewart to be your lawful, wedded wife?",
+      "coverage": 0.812,
+      "asrStart": null,
+      "asrEnd": 171.62,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 8,
+      "originalT": 0,
+      "en": "Harry: I do.",
+      "coverage": 0.667,
+      "asrStart": null,
+      "asrEnd": 174.92,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 9,
+      "originalT": 0,
+      "en": "Judge: And you, Susan Stewart, do you take Harry Bennett to be your lawful, wedded husband?",
+      "coverage": 0.938,
+      "asrStart": null,
+      "asrEnd": 181.8,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 10,
+      "originalT": 0,
+      "en": "Susan: I do",
+      "coverage": 0.667,
+      "asrStart": null,
+      "asrEnd": 184.72,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 11,
+      "originalT": 0,
+      "en": "Judge: The rings, please. Richard  I have them, Harry.",
+      "coverage": 0.667,
+      "asrStart": null,
+      "asrEnd": 191.02,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    },
+    {
+      "line": 12,
+      "originalT": 0,
+      "en": "Judge: By the power vested in me by the laws of the State of New York, I now pronounce you husband and wife. You may kiss the bride now, Harry.",
+      "coverage": 0.967,
+      "asrStart": null,
+      "asrEnd": 228.86,
+      "t": null,
+      "source": "unresolved",
+      "needsReview": true
+    }
+  ],
+  "key": "e19_a3",
+  "audioSha256": "0bc49e8303e487de56a59a2e74cc5fa8ee0b3335b22ae90e12c6dfcd998984ec",
+  "model": "base.en",
+  "algorithmSha256": "f7aa5d3ef941c868fe5c1f1547284a592f1d851112f857c12f9bd736625cd092",
+  "transcriptSha256": "a8cfda22a54d08964caff315fba135063c4f7ea0e3fa7d2044d8f64a0d734680"
+}

@@ -348,6 +348,15 @@
       margin-left: -2px;
     }
     .line-item:hover { background: var(--bg-subtle); }
+    .line-item[data-seekable] { cursor: pointer; scroll-margin: 80px 0; }
+    .line-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .line-item.is-current { background: var(--accent-soft); border-left-color: var(--accent); }
+    .line-item.is-current .line-en, .line-item.is-current .line-time { color: var(--accent); font-weight: 600; }
+    .sync-hint { width: 100%; color: var(--text-2); font-size: 12px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .line-item { transition: none; }
+    }
     .line-time {
       font-size: 11px; color: var(--text-3);
       font-variant-numeric: tabular-nums;
@@ -552,6 +561,7 @@
   </div>
 </div>
 
+<script src="./audio-sync.js"></script>
 <script>
 /* ─── State ─── */
 let data = null;
@@ -561,6 +571,66 @@ let currentActIdx = 0;
 let currentPlaybackRate = 1;
 let searchFocusedIdx = -1;
 let searchResultsCache = [];
+let disposeAudioSync = null;
+let followAudio = true;
+
+function stopCurrentAudio() {
+  if (disposeAudioSync) disposeAudioSync();
+  disposeAudioSync = null;
+  document.querySelectorAll('audio').forEach(audio => audio.pause());
+  document.querySelectorAll('.line-item.is-current').forEach(el => {
+    el.classList.remove('is-current');
+    el.removeAttribute('aria-current');
+  });
+}
+
+function toggleFollowAudio(btn) {
+  followAudio = !followAudio;
+  btn.classList.toggle('active', followAudio);
+  btn.setAttribute('aria-pressed', String(followAudio));
+  btn.textContent = followAudio ? '自动跟随：开' : '自动跟随：关';
+  if (followAudio) scrollToCurrentLine();
+}
+
+function scrollToCurrentLine() {
+  if (!followAudio || document.getElementById('detail-wrap').style.display === 'none' ||
+      document.getElementById('search-overlay').classList.contains('open')) return;
+  const current = document.querySelector('.line-item.is-current');
+  if (!current) return;
+  const rect = current.getBoundingClientRect();
+  if (rect.top < 72 || rect.bottom > window.innerHeight - 90) {
+    current.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
+  }
+}
+
+function seekToLine(li) {
+  const audio = document.getElementById(`audio-${currentActIdx}`);
+  const line = data.episodes[currentEpisodeIdx].acts[currentActIdx].lines[li];
+  if (!audio || !line) return;
+  audio.currentTime = line.t;
+  audio.play().catch(() => {
+    // Keep native controls available if playback is blocked or the file fails to load.
+  });
+}
+
+function bindAudioSync(audio, act, ai) {
+  const elements = Array.from(document.querySelectorAll(`#lines-${ai} .line-item`));
+  disposeAudioSync = AudioLineSync.attach(audio, act.lines, ([start, end]) => {
+    elements.forEach((el, i) => {
+      const active = i >= start && i < end;
+      el.classList.toggle('is-current', active);
+      if (active) el.setAttribute('aria-current', 'true');
+      else el.removeAttribute('aria-current');
+    });
+    if (!audio.paused) scrollToCurrentLine();
+  });
+  audio.addEventListener('play', scrollToCurrentLine);
+  const dispose = disposeAudioSync;
+  disposeAudioSync = () => {
+    audio.removeEventListener('play', scrollToCurrentLine);
+    dispose();
+  };
+}
 
 const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5];
 
@@ -610,6 +680,7 @@ function toggleChinese() {
 
 /* ─── View Switching ─── */
 function showHome() {
+  stopCurrentAudio();
   document.getElementById('home-wrap').style.display = '';
   document.getElementById('detail-wrap').style.display = 'none';
   document.getElementById('home-wrap').scrollTo({ top: 0, behavior: 'smooth' });
@@ -678,6 +749,7 @@ function goHome() {
 
 /* ─── Render Detail (episode + act tabs + lines) ─── */
 function renderDetail() {
+  stopCurrentAudio();
   const ep = data.episodes[currentEpisodeIdx];
   const content = document.getElementById('content');
 
@@ -734,6 +806,8 @@ function renderDetail() {
           您的浏览器不支持音频播放。
         </audio>
         <div class="speed-control">${speedBtns}</div>
+        <button class="btn ${followAudio ? 'active' : ''}" aria-pressed="${followAudio}" onclick="toggleFollowAudio(this)">${followAudio ? '自动跟随：开' : '自动跟随：关'}</button>
+        <div class="sync-hint">播放时高亮当前语句 · 点击台词从该句播放</div>
         <div class="audio-error" id="audio-error-${ai}">
           ⚠ 音频加载失败，请检查 <code>${act.audio}</code> 是否存在。
         </div>
@@ -751,7 +825,8 @@ function renderDetail() {
       <div class="line-item"
            id="line-${ai}-${li}"
            data-act="${ai}"
-           data-line="${li}">
+           data-line="${li}"
+            ${hasAudio ? `data-seekable role="button" tabindex="0" title="从该句播放" onclick="seekToLine(${li})" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); seekToLine(${li}); }"` : ''}>
         <div class="line-time">${formatTime(line.t)}</div>
         <div class="line-texts">
           <div class="line-en">${escapeHtml(line.en)}</div>
@@ -768,6 +843,7 @@ function renderDetail() {
     const audioEl = document.getElementById(`audio-${ai}`);
     if (audioEl) {
       audioEl.playbackRate = currentPlaybackRate;
+      bindAudioSync(audioEl, act, ai);
     }
   }
 }
@@ -816,6 +892,8 @@ function closeSearch() {
   document.getElementById('search-count').textContent = '';
   searchFocusedIdx = -1;
   searchResultsCache = [];
+  const audio = document.querySelector('audio');
+  if (audio && !audio.paused) scrollToCurrentLine();
 }
 
 function closeSearchOnOverlay(e) {
