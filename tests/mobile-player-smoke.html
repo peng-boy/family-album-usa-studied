@@ -23,7 +23,32 @@
    check(box.bottom<=740&&box.bottom>700,'Player near viewport bottom');
    check(w.getComputedStyle(d.querySelector('.mobile-player-selects')).display==='flex','Mobile selects visible');
    check(w.getComputedStyle(d.querySelector('.sentence-controls')).display==='none','Mode buttons hidden on mobile');
-   const speed=d.getElementById('speed-select');speed.value='0.5';speed.dispatchEvent(new Event('change'));
+   check(w.getComputedStyle(a).display==='none','Native progress bar hidden on mobile');
+    check(box.height<=64,'Collapsed player fits a single compact row');
+    check(!d.querySelector('.sync-hint'),'Verbose sync hint removed');
+    check(w.getComputedStyle(d.querySelector('.ab-controls')).display==='none','AB controls collapsed by default');
+    const play=d.querySelector('.mobile-play-toggle');
+    play.click();check(!a.paused&&play.getAttribute('aria-label')==='暂停','Play button starts audio and shows pause');
+    play.click();check(a.paused&&play.getAttribute('aria-label')==='播放','Pause button pauses audio and shows play');
+    const follow=d.querySelector('.follow-toggle');
+    check(follow.textContent==='跟随'&&follow.classList.contains('active'),'Follow is concise and highlighted when enabled');
+    follow.click();check(follow.textContent==='跟随'&&!follow.classList.contains('active')&&follow.getAttribute('aria-pressed')==='false','Follow toggles highlight without changing text');
+    follow.click();
+    const modeSelect=d.getElementById('mode-select');modeSelect.value='ab';modeSelect.dispatchEvent(new Event('change'));
+    check(w.getComputedStyle(d.querySelector('.ab-controls')).display==='flex','Choosing AB reveals setup before points exist');
+    modeSelect.value='continuous';modeSelect.dispatchEvent(new Event('change'));
+    check(w.getComputedStyle(d.querySelector('.ab-controls')).display==='none','Choosing continuous collapses AB setup');
+    for(const width of [320,375,430,768]){
+      frame.style.width=width+'px';await new Promise(resolve=>setTimeout(resolve,50));
+      const bounds=card.getBoundingClientRect();
+      check(bounds.height<=64&&card.scrollWidth<=card.clientWidth,'Compact player fits '+width+'px without overflow');
+      for(const control of [play,d.getElementById('speed-select'),modeSelect,follow]){
+        const rect=control.getBoundingClientRect();
+        check(rect.top>=bounds.top&&rect.bottom<=bounds.bottom&&rect.left>=bounds.left&&rect.right<=bounds.right,'Control stays in single row at '+width+'px');
+      }
+    }
+    frame.style.width='375px';await new Promise(resolve=>setTimeout(resolve,50));
+    const speed=d.getElementById('speed-select');speed.value='0.5';speed.dispatchEvent(new Event('change'));
    check(a.playbackRate===.5,'Speed select changes playback rate');
   check(d.querySelector('[data-play-mode="loop"]').closest('.audio-player')===card,'Loop control is inside player card');
   w.setSpeed(.5);check(a.playbackRate===.5,'Half speed works');
